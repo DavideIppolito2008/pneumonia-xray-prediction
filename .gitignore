@@ -1,0 +1,7 @@
+venv/
+site/
+site/uploads
+site/index.html
+site/main.js
+site/predict.py
+site/upload_predict.php
