@@ -1,22 +1,19 @@
 # Pneumonia Detection from Chest X-Rays
 
-This project provides a complete deep learning workflow for detecting **pneumonia** from chest X-ray images. It includes data preprocessing, model training, evaluation, and prediction via both command-line/GUI scripts and a web integration.
-
+The project delivers end-to-end deep learning functionalities to effortlessly detect pneumonia from chest X-rays, along with pre- and post-processing for deep learning models, and interfacing through CLI, GUI, and Web Apps.
 ---
 
 ## 📂 Project Structure
 
 ```
-├── data/                 # Dataset directory (train/val/test folders)
-├── models/               # Saved models and checkpoints
-├── scripts/              # Training, evaluation, and utility scripts
-│   ├── preprocess_and_train.py   # End-to-end preprocessing, training, evaluation
-│   └── predict_image_gui.py      # GUI-based prediction tool (Tkinter)
-├── notebooks/            # Jupyter notebooks for exploration
-├── requirements.txt      # Python dependencies
-└── README.md             # Project documentation
+├── data/                 # Dataset directory (train/val/test dirs)
+├── models/               # Saved models and check points
+├── scripts/              # Training, eval, and utility scripts
+│   ├── preprocess_and_train.py   # End-to-end process, train, and evaluate
+│   └── predict_image_gui.py      # Prediction GUI tool (Tkinter)
+├── requirements.txt      # Python requirements
+└── README.md             # Project readme
 ```
-
 ---
 
 ## 📊 Dataset
@@ -44,13 +41,13 @@ chest_xray/
 
 The script [`preprocess_and_train.py`](scripts/preprocess_and_train.py):
 
-- Loads training, validation, and test datasets with augmentations and normalization.
-- Uses **ResNet-18** (pretrained on ImageNet) with a fine-tuned classification head.
-- Trains with cross-entropy loss and Adam optimizer.
-- Tracks validation accuracy and saves the best model as `models/best_model.pth`.
-- Evaluates performance on the test set, printing:
-  - Accuracy, precision, recall, F1-score
-  - Confusion matrix visualization
+-Pre-processing and normalizing the training, validation, and testing datasets along with the augmentations.
+-Implements a version of ResNet-18 with a classification head that has been fine-tuned and pretrained on ImageNet.
+-Utilizes cross-entropy loss and Adam optimizer for training.
+-Monitors validation accuracy and saves the best performing model as models/best_model.pth. 
+-Analyzes test set performance by reporting:
+-Accuracy, precision, recall, F1-score, and
+-Visualization of the confusion matrix.
 
 Run training with:
 
@@ -60,31 +57,14 @@ python scripts/preprocess_and_train.py
 
 ---
 
-## 🔮 Prediction Tools
-
-### 1. Command-line/Web Prediction
-
-The [`site/predict.py`](site/predict.py) script can be called directly or via the PHP backend (`upload_predict.php`) to classify uploaded images.
-
-Example usage:
-
-```bash
-python site/predict.py path/to/image.jpg
-```
-
-Output:
-
-```json
-{"prediction": "PNEUMONIA"}
-```
-
-### 2. GUI-based Prediction
-
-The [`predict_image_gui.py`](scripts/predict_image_gui.py) script provides a simple **Tkinter GUI**:
+## Prediction Tools
+### 1. GUI-based Prediction
+The [`predict_image_gui.py`](scripts/predict_image_gui.py) script shows a simple **Tkinter GUI**:
 
 - User selects a chest X-ray file.
-- The model predicts **NORMAL** or **PNEUMONIA**.
-- Result is shown in a popup window.
+
+- Model predicts **NORMAL** or **PNEUMONIA**.
+- Show result in a pop-up window.
 
 Run GUI:
 
@@ -94,7 +74,7 @@ python scripts/predict_image_gui.py
 
 ---
 
-## 🛠️ Requirements
+## 🛠 Requirements
 
 Install Python dependencies from `requirements.txt`:
 
@@ -125,13 +105,12 @@ Key dependencies:
 
 ## 📌 Notes
 
-- The model currently distinguishes **NORMAL** vs. **PNEUMONIA** cases.
-- Ensure the dataset is structured correctly before training.
-- For deployment, consider using a production-ready server (e.g., Flask API, FastAPI, or Docker container).
 
+- The model is discriminating **NORMAL** vs. **PNEUMONIA** cases at this moment.
+- Ensure that the dataset is formatted correctly before training.
+- Deploy with a production-ready server
 ---
 
-## 👨‍💻 Authors
+## Authors
 
-Developed by **Davide Ippolito** as part of a deep learning project for medical image classification.
-
+Built by **Davide Ippolito** as an exercise in medical image classification using deep learning.
